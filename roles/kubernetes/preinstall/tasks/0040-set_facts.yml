@@ -177,7 +177,8 @@
     path: "/usr"
   register: usr
 
-- name: set alternate flexvolume path
+- name: set alternate flexvolume path if /usr is not writable
   set_fact:
     kubelet_flexvolumes_plugins_dir: /var/lib/kubelet/volumeplugins
   when: not usr.stat.writeable
+  # ansible_os_family in ["CoreOS", "Coreos"] (or, but no sure, Fedora CoreOS)
