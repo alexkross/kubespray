@@ -122,7 +122,7 @@
   roles:
     - { role: kubespray-defaults }
     - { role: kubernetes-apps, tags: apps }
-  environment: "{{ proxy_env }}"
+  #environment: "{{ proxy_env }}"
 
 - hosts: k8s-cluster
   any_errors_fatal: "{{ any_errors_fatal | default(true) }}"
